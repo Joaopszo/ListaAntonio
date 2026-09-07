@@ -6,14 +6,14 @@ public class Imagens {
 
     void proximaImagem(){
 
-        imagensAtual=imagensAtual.next;
+        imagensAtual = imagensAtual.next;
         System.out.println(imagensAtual.data);
 
     }
 
     void anteriorImagem(){
 
-        imagensAtual=imagensAtual.back;
+        imagensAtual = imagensAtual.back;
         System.out.println(imagensAtual.data);
 
     }
