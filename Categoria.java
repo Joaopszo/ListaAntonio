@@ -4,6 +4,7 @@ public class Categoria {
 
     String nome;
     Lista noticias = new Lista();
+
     static Node categoriaAtual;
     static Lista listaCategorias = new Lista();
     static int indexCategoriaAtual;
@@ -30,18 +31,29 @@ public class Categoria {
 
     }
 
-    void proximaCategoria(){
+    static Categoria categoriaSelecionada(){
+        return (Categoria) categoriaAtual.data;
+    }
 
+    static void proximaCategoria(){
+
+        listaCategorias.isEmpty();
         categoriaAtual = categoriaAtual.next;
-        System.out.println(categoriaAtual.data);
+        indexCategoriaAtual = (indexCategoriaAtual + 1) % listaCategorias.tamanho;
+        System.out.println("Categoria(" + indexCategoriaAtual + "):" + categoriaAtual.data);
+
+        Noticias.reiniciar(categoriaSelecionada().noticias);
 
     }
 
-    void anteriorCategoria(){
+    static void anteriorCategoria(){
 
+        listaCategorias.isEmpty();
         categoriaAtual = categoriaAtual.back;
-        System.out.println(categoriaAtual.data);
+        indexCategoriaAtual = (indexCategoriaAtual - 1 + listaCategorias.tamanho) % listaCategorias.tamanho;
+        System.out.println("Categoria(" + indexCategoriaAtual + "):" + categoriaAtual.data);
 
+        Noticias.reiniciar(categoriaSelecionada().noticias);
     }
 
 }

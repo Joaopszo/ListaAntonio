@@ -4,43 +4,67 @@ public class Noticias {
 
         String titulo;
         Lista imagens = new Lista();
+
         static Node noticiaAtual;
         static int indexNoticiaAtual;
 
         Noticias( String titulo ){
 
-            this.nome = nome;
+            this.titulo = titulo;
 
         }
 
-        static ProjetoSimples.Categoria addCategoria (String nome ){
+        static Noticias addNoticia (String titulo ){
 
-            ProjetoSimples.Categoria categoria = new ProjetoSimples.Categoria(nome);
-            listaCategorias.addData(categoria);
+            Noticias noticia = new Noticias(titulo);
+            Lista noticiasDaCategoria = Categoria.categoriaSelecionada().noticias;
+            noticiasDaCategoria.addData(noticia);
 
-            if ( listaCategorias.tamanho == 1 ){
+            if ( noticiasDaCategoria.tamanho == 1 ){
 
-                categoriaAtual = listaCategorias.begin;
-                indexCategoriaAtual = 0;
+                noticiaAtual = noticiasDaCategoria.begin;
+                indexNoticiaAtual = 0;
 
             }
 
-            return categoria;
+            return noticia;
 
         }
 
-    void proximaNoticia(){
+        static Noticias noticiaSelecionada(){
+            return (Noticias) noticiaAtual.data;
+        }
 
-        noticiasAtual = noticiasAtual.next;
-        System.out.println(noticiasAtual.data);
 
-    }
+        static void proximaNoticia(){
 
-    void anteriorNoticia(){
+            Lista noticiasDaCategoria = Categoria.categoriaSelecionada().noticias;
+            noticiasDaCategoria.isEmpty();
+            noticiaAtual = noticiaAtual.next;
+            indexNoticiaAtual = (indexNoticiaAtual + 1) % noticiasDaCategoria.tamanho;
+            System.out.println("Noticia (" + indexNoticiaAtual + "):" + noticiaAtual.data);
 
-        noticiasAtual = noticiasAtual.back;
-        System.out.println(noticiasAtual.data);
+        }
 
-    }
+        static void anteriorNoticia(){
 
+            Lista noticiasDaCategoria = Categoria.categoriaSelecionada().noticias;
+            noticiasDaCategoria.isEmpty();
+            noticiaAtual = noticiaAtual.back;
+            indexNoticiaAtual = (indexNoticiaAtual - 1 + noticiasDaCategoria.tamanho) % noticiasDaCategoria.tamanho;
+            System.out.println("Noticia (" + indexNoticiaAtual + "):" + noticiaAtual.data);
+        }
+
+        static void reiniciar (Lista noticiasDaCategoria){
+
+            if (noticiasDaCategoria.begin == null){
+                noticiaAtual = null;
+                indexNoticiaAtual = -1;
+                Imagens.reiniciar(null);
+            } else {
+                noticiaAtual = noticiasDaCategoria.begin;
+                indexNoticiaAtual = 0;
+                Imagens.reiniciar (noticiaSelecionada().imagens);
+            }
+        }
 }

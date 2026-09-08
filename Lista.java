@@ -5,9 +5,7 @@ class Lista {
 
     Node begin;
     Node end;
-    Node atual;
     int tamanho;
-    int indiceAtual;
 
     void addData ( Object data ){
 
@@ -31,12 +29,10 @@ class Lista {
 
         }
 
-        atual = novo;
-        indiceAtual = tamanho;
         tamanho++;
     }
 
-    private void isEmpty(){
+    void isEmpty(){
 
         if ( begin == null ){
 
