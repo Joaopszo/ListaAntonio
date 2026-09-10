@@ -10,12 +10,6 @@ public class Imagem {
 
     }
 
-    protected Object getDado (){
-
-        return this.dado;
-
-    }
-
     @Override
 
     public String toString (){

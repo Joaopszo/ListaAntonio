@@ -36,4 +36,12 @@ public class Categoria extends Lista {
         return this.procurarData(noticiaAtual);
 
     }
+
+    @Override
+
+    public String toString (){
+
+        return String.valueOf(titulo);
+
+    }
 }

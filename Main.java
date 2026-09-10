@@ -10,23 +10,54 @@ public class Main {
     public static void main( String[] args ) {
 
         SistemaNoticias sistema = new SistemaNoticias();
+        Categoria noticiasSistema = new Categoria("lista padrão de notícias");
+        Noticia imagensSistema = new Noticia("lista padrão de imagens");
 
-        int opcao;
+        sistema.addCategoria(noticiasSistema);
+        noticiasSistema.addNoticia(imagensSistema);
 
-        do {
+        statusAtual(sistema, noticiasSistema, imagensSistema);
 
-            exibirStatus(sistema);
-            exibirMenu();
-            opcao = lerOpcao();
-            executarOpcao(opcao);
-
-        } while (opcao != 0);
-
-        System.out.println("Encerrou");
 
     }
 
-    private static void exibirMenu(){
+    static void statusAtual( SistemaNoticias sistema, Categoria noticiasSistema, Noticia imagensSistema ){
+
+        System.out.println("=== STATUS DO SISTEMA ===" );
+
+        if ( sistema == null ){
+
+            System.out.println("A lista de categorias está vazia");
+
+        } else {
+
+            System.out.println("O sistema possui " + sistema.retornarTamanho()+ " categorias");
+
+        }
+
+        if ( noticiasSistema == null ){
+
+            System.out.println("A lista de noticias está vazia");
+
+        } else {
+
+            System.out.println("O sistema possui " + noticiasSistema.retornarTamanho() + " noticias");
+
+        }
+
+        if ( imagensSistema == null ){
+
+            System.out.println("A lista de imagens está vazia");
+
+        } else {
+
+            System.out.println("O sistema possui " + imagensSistema.retornarTamanho() + " imagens");
+
+        }
+
+    }
+
+    void exibirMenu(){
 
         System.out.println("\n===== MENU =====");
         System.out.println(" 1 - Adicionar categoria");
@@ -40,38 +71,6 @@ public class Main {
         System.out.println(" 9 - Imagem anterior");
         System.out.println(" 0 - Sair");
         System.out.print("Escolha: ");
-
-    }
-
-
-    private static void exibirStatus( SistemaNoticias sistema ) {
-
-        System.out.println("\n--- Status atual ---");
-
-        if (sistema.categoriaAtual == 0) {
-            System.out.println("Nenhuma categoria cadastrada ainda.");
-            return;
-        }
-
-
-        System.out.println("Categoria [" + Categoria.indexCategoriaAtual + "]: "
-                + Categoria.categoriaSelecionada().nome);
-
-        if (Noticias.noticiaAtual == null) {
-            System.out.println("  (sem noticias nesta categoria)");
-            return;
-        }
-
-        System.out.println("  Noticia [" + Noticias.indexNoticiaAtual + "]: "
-                + Noticias.noticiaSelecionada().titulo);
-
-        if (Imagens.imagemAtual == null) {
-            System.out.println("    (sem imagens nesta noticia)");
-            return;
-        }
-
-        System.out.println("    Imagem [" + Imagens.indexImagemAtual + "]: "
-                + Imagens.imagemAtual.data);
 
     }
 

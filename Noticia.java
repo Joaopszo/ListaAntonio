@@ -3,6 +3,13 @@ package projetosimples;
 public class Noticia extends Lista {
 
     protected int imagemAtual = 0;
+    protected String titulo;
+
+    protected Noticia ( String titulo ){
+
+        this.titulo = titulo;
+
+    }
 
     protected void addImagem ( Imagem imagem ){
 
@@ -27,6 +34,14 @@ public class Noticia extends Lista {
 
         imagemAtual--;
         return this.procurarData(imagemAtual);
+
+    }
+
+    @Override
+
+    public String toString (){
+
+        return String.valueOf(titulo);
 
     }
 

@@ -5,12 +5,12 @@ class Lista {
     protected Node begin;
     protected Node end;
 
-    void addData (Object data){
+    void addData(Object data) {
 
         Node novo = new Node();
         novo.data = data;
 
-        if ( begin == null ){
+        if (begin == null) {
 
             begin = novo;
             begin.next = begin;
@@ -29,12 +29,12 @@ class Lista {
 
     }
 
-    Object procurarData( int index ){
+    Object procurarData(int index) {
 
         Node aux = this.begin;
         int contador = 0;
 
-        if ( index < 0 ){
+        if (index < 0) {
 
             while (contador != index) {
 
@@ -55,6 +55,27 @@ class Lista {
         }
 
         return aux.data;
+
+    }
+
+    int retornarTamanho() {
+
+        Node aux = this.begin;
+        int tamanho = 0;
+
+        if (this.begin != null) {
+
+            do {
+
+                tamanho++;
+                aux = aux.next;
+
+
+            } while (aux != this.begin);
+
+        }
+
+        return tamanho;
 
     }
 }
