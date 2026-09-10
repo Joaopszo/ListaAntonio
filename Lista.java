@@ -1,15 +1,11 @@
-package ProjetoSimples;
-import java.util.NoSuchElementException;
+package projetosimples;
 
 class Lista {
 
     Node begin;
     Node end;
-    Node atual;
-    int tamanho;
-    int indiceAtual;
 
-    void addData ( Object data ){
+    void addData (Object data){
 
         Node novo = new Node();
         novo.data = data;
@@ -31,18 +27,34 @@ class Lista {
 
         }
 
-        atual = novo;
-        indiceAtual = tamanho;
-        tamanho++;
     }
 
-    private void isEmpty(){
+    Object procurarData( int index ){
 
-        if ( begin == null ){
+        Node aux = this.begin;
+        int contador = 0;
 
-            throw new NoSuchElementException("Lista vazia");
+        if ( index < 0 ){
+
+            while (contador != index) {
+
+                aux = aux.back;
+                contador--;
+
+            }
+
+        } else {
+
+            while (contador != index) {
+
+                aux = aux.next;
+                contador++;
+
+            }
 
         }
+
+        return aux.data;
 
     }
 }

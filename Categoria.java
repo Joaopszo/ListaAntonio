@@ -1,47 +1,33 @@
-package ProjetoSimples;
+package projetosimples;
 
-public class Categoria {
+public class Categoria  {
 
-    String nome;
-    Lista noticias = new Lista();
-    static Node categoriaAtual;
-    static Lista listaCategorias = new Lista();
-    static int indexCategoriaAtual;
+    private Lista listaDeNoticias;
+    private int noticiaAtual = 0;
 
-    Categoria( String nome ){
+    protected void addNoticia ( Noticia noticia ){
 
-        this.nome = nome;
+        this.listaDeNoticias.addData(noticia);
 
     }
 
-    static Categoria addCategoria ( String nome ){
+    protected Object noticiaAtual(){
 
-        Categoria categoria = new Categoria(nome);
-        listaCategorias.addData(categoria);
-
-        if ( listaCategorias.tamanho == 1 ){
-
-            categoriaAtual = listaCategorias.begin;
-            indexCategoriaAtual = 0;
-
-        }
-
-        return categoria;
+        return this.listaDeNoticias.procurarData(noticiaAtual);
 
     }
 
-    void proximaCategoria(){
+    protected Object proximaNoticia(){
 
-        categoriaAtual = categoriaAtual.next;
-        System.out.println(categoriaAtual.data);
-
-    }
-
-    void anteriorCategoria(){
-
-        categoriaAtual = categoriaAtual.back;
-        System.out.println(categoriaAtual.data);
+        noticiaAtual++;
+        return this.listaDeNoticias.procurarData(noticiaAtual);
 
     }
 
+    protected Object anteriorNoticia(){
+
+        noticiaAtual--;
+        return this.listaDeNoticias.procurarData(noticiaAtual);
+
+    }
 }
