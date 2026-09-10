@@ -2,8 +2,8 @@ package projetosimples;
 
 class Lista {
 
-    Node begin;
-    Node end;
+    private Node begin;
+    private Node end;
 
     void addData (Object data){
 
