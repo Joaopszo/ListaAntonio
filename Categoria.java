@@ -2,7 +2,14 @@ package projetosimples;
 
 public class Categoria extends Lista {
 
-    private int noticiaAtual = 0;
+    protected String titulo;
+    protected int noticiaAtual = 0;
+
+    protected Categoria(String titulo){
+
+        this.titulo = titulo;
+
+    }
 
     protected void addNoticia ( Noticia noticia ){
 

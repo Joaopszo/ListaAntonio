@@ -2,7 +2,7 @@ package projetosimples;
 
 public class Noticia extends Lista {
 
-    private int imagemAtual = 0;
+    protected int imagemAtual = 0;
 
     protected void addImagem ( Imagem imagem ){
 

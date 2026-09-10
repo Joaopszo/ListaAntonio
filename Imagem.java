@@ -2,7 +2,7 @@ package projetosimples;
 
 public class Imagem {
 
-    private Object dado;
+    protected Object dado;
 
     protected Imagem ( Object dado ){
 
