@@ -1,4 +1,8 @@
-package projetosimples;
+package ProjetoSimples;
+
+import ProjetoSimples.Categoria;
+import ProjetoSimples.Noticia;
+import ProjetoSimples.SistemaNoticias;
 
 import java.util.Scanner;
 import java.util.NoSuchElementException;
@@ -21,7 +25,7 @@ public class Main {
 
     }
 
-    static void statusAtual( SistemaNoticias sistema, Categoria noticiasSistema, Noticia imagensSistema ){
+    static void statusAtual(SistemaNoticias sistema, Categoria noticiasSistema, Noticia imagensSistema ){
 
         System.out.println("=== STATUS DO SISTEMA ===" );
 

@@ -1,4 +1,4 @@
-package projetosimples;
+package ProjetoSimples;
 
 public class Noticia extends Lista {
 
@@ -34,6 +34,13 @@ public class Noticia extends Lista {
 
         imagemAtual--;
         return this.procurarData(imagemAtual);
+
+    }
+
+    protected void removerImagem(){
+
+        this.removeData(imagemAtual);
+        imagemAtual = 0;
 
     }
 

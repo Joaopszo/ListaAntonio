@@ -1,4 +1,4 @@
-package projetosimples;
+package ProjetoSimples;
 
 public class Categoria extends Lista {
 
@@ -34,6 +34,13 @@ public class Categoria extends Lista {
 
         noticiaAtual--;
         return this.procurarData(noticiaAtual);
+
+    }
+
+    protected void removerNoticia(){
+
+        this.removeData(noticiaAtual);
+        noticiaAtual = 0;
 
     }
 

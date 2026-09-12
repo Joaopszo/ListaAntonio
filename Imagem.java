@@ -1,4 +1,4 @@
-package projetosimples;
+package ProjetoSimples;
 
 public class Imagem {
 
